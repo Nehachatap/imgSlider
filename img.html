@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>image gallery</title>
+    <style>
+        body{
+            background-color: #acac9a;
+        }
+   .img-slider{
+    height: 600px;
+    width:1000px;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+   }
+   .btn-container{
+    position: relative;
+    width: fit-content;
+    display: block;
+    margin: 10px auto;
+   
+    
+   }
+   .btn{
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    position: absolute;
+    background-color: #acac9a;
+    border-radius: 50px;
+    top: 300px;
+   }
+   .btn-prev{
+    
+    left: -60px;
+    
+   }
+   .btn-next{
+   
+    right: -60px;
+   
+   }
+   .head{
+    display: flex;
+    text-align: center;
+    margin-left: 350px;
+    margin-right: 350px;
+    background-color: 	#46554f;
+    color: aliceblue;
+   }
+   .info{
+    text-align: center;
+    font: 1em sans-serif;
+   }
+
+    </style>
+</head>
+<body>
+        <h1 class="head"><I><B>MOST POPULAR ATTRACTION IN MADHYA PRADESH</B></I></h1>
+ 
+ <div class="btn-container">
+    <img src="./gallery/img1.jpeg" class="img-slider" id="img"/> 
+    <img src="./gallery/left-arrow.png" class="btn btn-prev" onclick="prev()" id="img"/> 
+    <img src="./gallery/right-arrow.png" class="btn btn-next"  onclick="Next()" id="img"/> 
+ </div>
+ <p class="info"><i>Madhya Pradesh tourismis well known for its rich cultural heritage, <br>
+    magnificent historical sites, diverse wildlife, and stunning natural beauty. <br>
+    The state has been part of many great empires over the centuries of yesteryears.</i>
+</p>
+ 
+
+ <script>
+    const imagesArr = ["./gallery/img1.jpg",
+        "./gallery/img01.webp",
+        "./gallery/img2.webp",
+        "./gallery/img02.jpg",
+        "./gallery/img03.webp",
+        "./gallery/img3.webp",
+        "./gallery/img4.jpg",
+        "./gallery/img5.webp",
+        
+    ];
+    let imgIndex = 0;
+    const imgElement = document.getElementById('img');
+        
+    function prev(){
+        if(imgIndex==0)
+            imgIndex =imagesArr.length -1
+        
+        else
+            imgIndex--;
+        
+        imgElement.src=imagesArr[imgIndex]
+    }
+    function Next(){
+        if(imgIndex==imagesArr.length -1)
+            imgIndex =0;
+        
+        else
+            imgIndex++;
+        
+        imgElement.src=imagesArr[imgIndex]
+    }
+    setInterval(Next,2000); 
+ </script>
+</body>
+</html>
